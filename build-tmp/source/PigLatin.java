@@ -23,15 +23,27 @@ public void setup() {
 	//System.out.println("there are " + lines.length + " lines");
 	for (int i = 0 ; i < lines.length; i++) 
 	{
-	  System.out.println(pigLatin(lines[i]));
+	  //System.out.println(pigLatin(lines[i]));
 	}
 	String HymnLines[] = loadStrings("LowellHymn.txt");
 	ArrayList <String[]> HymnWords=new ArrayList <String[]> ();
 	for(int i = 0; i < HymnLines.length; i++)
 	{
-		HymnWords.add(String.split(HymnLines[i],' '));
+		HymnWords.add(HymnLines[i].split(" "));
 	}
-	println(HymnWords);
+	for(int i=0;i<HymnWords.size();i++)
+	{
+		for(int x=0;x<HymnWords.get(i).length;x++)
+		{
+			println(pigLatin((HymnWords.get(i))[x]));
+			
+		}
+	}
+	/*String splitedLines[]= HymnLines[0].split(" ");
+	for(int i=0;i<splitedLines.length;i++)
+	{
+		println(splitedLines[i]);
+	}*/
 }
 public void draw()
 {
@@ -53,7 +65,7 @@ public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
 //postcondition: returns the pig latin equivalent of sWord
 {
-	if(sWord.equals(" ") || sWord.equals(".") || sWord.equals(",") || sWord.equals("!"))
+	if(sWord.equals(" ") || sWord.equals(".") || sWord.equals(",") || sWord.equals("!") || sWord.equals(""))
 	{
 		return sWord;
 	}
